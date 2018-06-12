@@ -26,17 +26,17 @@ void GameControl::startMenu()
     };
     do
     {
-        std::cout << "\nGame menu ( To select, enter 1, 2 or 3 )\n"
+        std::cout << "\nGame menu ( To select, enter 1 or 2 )\n"
                   << std::setw(5) << "1. "
                   << "Start game\n"
-                  << std::setw(5) << "3. "
+                  << std::setw(5) << "2. "
                   << "Exit\n"
                   << ">> ";
         std::cin >> selection;
         std::cin.clear();
         std::cin.sync();
         selection--;
-    } while (selection > 2);
+    } while (selection > 1);
 
     switch ((MenuItems)selection)
     {
@@ -54,11 +54,11 @@ void GameControl::startMenu()
 // Cleaning the console ( for Windows and Linux )
 void clearScreen()
 {
-#ifdef __WIN32
+#ifdef _WIN32
     system("cls");
 #else
     system("clear");
-#endif // __WIN32
+#endif // _WIN32
 }
 
 // Erase input from errors and invalid input
