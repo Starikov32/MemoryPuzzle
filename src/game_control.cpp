@@ -121,7 +121,7 @@ void GameControl::startGame()
     }
     // Show the result of the game
     std::cout << "Excellent! You Won!\n"
-              << "Your score = " << numberOfSteps << '\n';
+              << "Number of you steps = " << numberOfSteps << '\n';
     system("pause");
     startMenu();
 }
