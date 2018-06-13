@@ -7,6 +7,12 @@ Supported platforms
 
 Dependencies
  No dependencies from third-party libraries. Only C and C++.
+<<<<<<< HEAD
 
 Build
  Compile any way with the flag -std=c++11
+=======
+ 
+Build
+ Compile any way with the flag -std=c++11
+>>>>>>> 2a0326a26de6a4331729c4a3abaff24e6c60816f

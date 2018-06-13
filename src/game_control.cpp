@@ -33,8 +33,7 @@ void GameControl::startMenu()
                   << "Exit\n"
                   << ">> ";
         std::cin >> selection;
-        std::cin.clear();
-        std::cin.sync();
+        clearInput();
         selection--;
     } while (selection > 1);
 
@@ -72,7 +71,6 @@ void GameControl::exitGame()
 {
     clearScreen();
     std::cout << "Thanks for the game!";
-    exit(EXIT_SUCCESS);
 }
 
 void GameControl::startGame()
