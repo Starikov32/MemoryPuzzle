@@ -3,6 +3,7 @@
 #Supported platforms
  - Windows
  - Linux
+
 #Dependencies
  No dependencies from third-party libraries. Only C and C++.
 #Build
