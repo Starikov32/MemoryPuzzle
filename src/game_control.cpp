@@ -10,22 +10,23 @@ void clearInput();
 
 void GameControl::startMenu()
 {
-    clearScreen();
-    std::cout << "#   # #### #   # ##### #### #   # . #### #  # #### #### #    ####\n"
-              << "## ## #    ## ## #   # #  #  # #  . #  # #  #   ##   ## #    #   \n"
-              << "# # # #### # # # #   # ####   #   . #### #  #  ##   ##  #    ####\n"
-              << "#   # #    #   # #   # # #    #   . #    #  # ##   ##   #    #   \n"
-              << "#   # #### #   # ##### #  #   #   . #    #### #### #### #### ####\n";
-
-    // Show game menu
     unsigned int selection;
     enum class MenuItems
     {
         START_GAME,
         EXIT
     };
+    bool game = true;
     do
     {
+        clearScreen();
+        std::cout << "#   # #### #   # ##### #### #   # . #### #  # #### #### #    ####\n"
+                  << "## ## #    ## ## #   # #  #  # #  . #  # #  #   ##   ## #    #   \n"
+                  << "# # # #### # # # #   # ####   #   . #### #  #  ##   ##  #    ####\n"
+                  << "#   # #    #   # #   # # #    #   . #    #  # ##   ##   #    #   \n"
+                  << "#   # #### #   # ##### #  #   #   . #    #### #### #### #### ####\n";
+
+        // Show game menu
         std::cout << "\nGame menu ( To select, enter 1 or 2 )\n"
                   << std::setw(5) << "1. "
                   << "Start game\n"
@@ -35,19 +36,21 @@ void GameControl::startMenu()
         std::cin >> selection;
         clearInput();
         selection--;
-    } while (selection > 1);
 
-    switch ((MenuItems)selection)
-    {
-    case MenuItems::START_GAME:
-        startGame();
-        break;
-    case MenuItems::EXIT:
-        exitGame();
-        break;
-    default:
-        break;
-    }
+        switch ((MenuItems)selection)
+        {
+        case MenuItems::START_GAME:
+            startGame();
+            break;
+        case MenuItems::EXIT:
+            game = false;
+            clearScreen();
+            std::cout << "Thanks for game!\n";
+            break;
+        default:
+            break;
+        }
+    } while (game);
 }
 
 // Cleaning the console ( for Windows and Linux )
@@ -65,12 +68,6 @@ void clearInput()
 {
     std::cin.clear();
     std::cin.sync();
-}
-
-void GameControl::exitGame()
-{
-    clearScreen();
-    std::cout << "Thanks for the game!";
 }
 
 void GameControl::startGame()
@@ -121,7 +118,7 @@ void GameControl::startGame()
     std::cout << "Excellent! You Won!\n"
               << "Number of you steps = " << numberOfSteps << '\n';
     system("pause");
-    startMenu();
+    numberOfSteps = 0;
 }
 
 void GameControl::nextTurn()

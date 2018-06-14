@@ -11,7 +11,6 @@ public:
   ~GameControl() = default;
 
   void startMenu();
-  void exitGame();
   void startGame();
   void nextTurn();
 
